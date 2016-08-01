@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>posts</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+@font-face
+{
+  font-family:"Comic Sans MS", cursive, sans-serif;
+}
+body
+{
+  font-family:"Comic Sans MS", cursive, sans-serif;
+  font-size: 20px;
+{#  background-image:url("log.jpg");#}
+  height:2000px;
+}
+#total
+{
+{#  position:fixed;#}
+  margin-left:25%;
+  margin-top:6%;
+  background-color: rgba(255,255,255,0.4);
+  border :rgba(224,224,224,0.4) 10px solid;
+  float:left;
+  border-radius:30px;
+  padding:60px;
+  width:500px;
+  height:300px;
+}
+form
+{
+  margin-top:1px;
+  clear:both;
+}
+input
+{
+  transition-duration: 0.2s;
+  clear: right;
+  float: left;
+}
+label
+{
+  font-size:25px;
+  float:left;
+  clear: left;
+}
+input.radi
+{
+  float:left;
+  clear:none;
+  transition-duration: 0.2s;
+}
+label.radi
+{
+  float:left;
+  clear:none;
+}
+label#gen
+{
+  clear:left;
+}
+.title
+{
+  text-size:30px;
+  text-align:center;
+  font-size:40px;
+}
+.tit
+{
+  text-size:30px;
+  text-align:center;
+  font-size:30px;
+}
+.log
+{
+  text-size:30px;
+  text-align:center;
+  font-size:25px;
+}
+.sign
+{
+  float:left;
+  display:inline;
+  padding:10px;
+  margin-bottom:5px;
+  margin-left:12px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px grey;
+  background-color:#ffffff;
+
+}
+.col{
+    background-color: #ce8483;
+{#    position: fixed;#}
+{#    height: 200px;#}
+}
+.sign:hover,.sign:focus
+{
+  box-shadow:0px 2px 2px grey;
+  padding:2%;
+  cursor:pointer;
+
+}
+input,input.radi
+{
+  padding:6px;
+}
+input:hover,input.radi:hover,input:focus,input.radi:focus
+{
+  transition-duration: 0.2s;
+  padding:8px;
+}
+</style>
+<body>
+{% extends "base.html" %}
+
+{#{% block title %}Login{% endblock %}#}
+{#<h3>{% block head %}Login{% endblock %}</h3>#}
+
+{% block content %}
+    {%  load staticfiles %}<div class="col">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="{% static 'images/insta_logo.jpg' %}" height="100px" width="100x"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong class="title">Instagram</strong><br><br></div>
+
+    <div id="total" align="center">
+<strong class="tit">Login</strong><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <strong class="log"><a href="/register">SignUp</a></strong>
+<br><br>
+    {% if form.errors %}
+        Your username and password didn't match. Please try again.<br><br>
+    {% endif %}
+    <form method="post" action=".">{% csrf_token %}
+            <tr><th><label for="id_username">Username:</label></th><td>{{ form.username }}</td></tr>
+            <tr><th><label for="id_password">Password:</label></th><td>{{ form.password }}</td></tr>
+        <center><input type="submit" value="Login" /></center>
+        <input type="hidden" name="next" value="/home" />
+    </form>
+    <br>
+
+    </div>
+{% endblock %}
+</body>
+</html>
